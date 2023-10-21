@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100%;
 }
 .tic-tac-toe-inner {
@@ -13,7 +14,10 @@
 button {
     flex-basis: 33.33333%;
     background: none;
-    border: 10px solid purple;
+    background: rgba(255, 255, 255, 0.34);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 10px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
     color: white;
     display: flex;
@@ -23,4 +27,23 @@ button {
 }
 .square {
     font-size: 60px;
+}
+.winner {
+    color: white;
+    font-size: 1.5rem;
+}
+.winner-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.try-again {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    background: purple;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
 }

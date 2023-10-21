@@ -1,10 +1,11 @@
 import './App.css'
-import {ReactNode, useState} from "react";
-
+import {useState} from "react";
+import Square from "./assets/Square.tsx";
+import {SquareContext} from "./context/contexts.ts";
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [board, setBoard] = useState<(string | null)[]>(Array(9).fill(null));
   const [isX, setIsX] = useState(true);
-  const handleSquareSetting = (i: number) => {
+  const handleSquareSetting = (i: number): void => {
       const updatedBoard = [...board]
       if(isX) {
           updatedBoard[i] = 'x'
@@ -18,15 +19,9 @@ function App() {
     <>
       <div className="tic-tac-toe-wrapper">
           <div className="tic-tac-toe-inner">
-              {board.map((square, index) => {
-                  return <button
-                          className="btn"
-                          value={index}
-                          onClick={() => handleSquareSetting(index)}
-                          key={index}>
-                            <span className="square">{square}</span>
-                          </button>
-              })}
+            <SquareContext.Provider value="dark">
+              <Square board={board} handleSquareSetting={handleSquareSetting}/>
+            </SquareContext.Provider>
           </div>
       </div>
     </>
